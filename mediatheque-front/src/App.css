@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f4f6f8;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #1f2937;
+}
+
+.App {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+h1 {
+    color: #1e3a8a;
+    border-bottom: 3px solid #1e3a8a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2, h3 {
+    color: #1e3a8a;
+}
+
+/* --- Cartes génériques (formulaires, blocs) --- */
+.carte {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+/* --- Formulaires --- */
+form div {
+    margin-bottom: 0.75rem;
+}
+
+label {
+    display: inline-block;
+    width: 90px;
+    font-weight: 600;
+    color: #374151;
+}
+
+input {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1e3a8a;
+}
+
+button {
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+button:hover {
+    background-color: #1c3170;
+}
+
+.erreur {
+    color: #b91c1c;
+    background-color: #fee2e2;
+    border: 1px solid #fca5a5;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* --- Barre utilisateur --- */
+.barre-utilisateur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Grille de livres --- */
+.grille-livres {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.carte-livre {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.carte-livre .titre {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.carte-livre .auteur {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.badge.disponible {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.badge.emprunte {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* --- Liste des emprunts --- */
+.liste-emprunts {
+    list-style: none;
+    padding: 0;
+}
+
+.liste-emprunts li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.liste-emprunts li:last-child {
+    border-bottom: none;
+}

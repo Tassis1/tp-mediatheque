@@ -1,0 +1,15 @@
+# Backend Maven
+mediatheque-api/target/
+
+# Frontend Node/Vite
+mediatheque-front/node_modules/
+mediatheque-front/dist/
+
+# Secrets / config locale (à ne jamais versionner)
+**/standalone.xml
+*.key
+*.crt
+
+# IDE
+.vscode/
+.idea/
