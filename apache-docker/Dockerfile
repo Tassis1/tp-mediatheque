@@ -14,7 +14,7 @@ RUN sed -i \
     -e 's/^#LoadModule proxy_module/LoadModule proxy_module/' \
     -e 's/^#LoadModule proxy_http_module/LoadModule proxy_http_module/' \
     /usr/local/apache2/conf/httpd.conf
-
+RUN echo "Listen 443" >> /usr/local/apache2/conf/httpd.conf
 RUN echo "Include conf/extra/mediatheque.conf" >> /usr/local/apache2/conf/httpd.conf
 
 EXPOSE 80 443

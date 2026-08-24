@@ -13,3 +13,13 @@ mediatheque-front/dist/
 # IDE
 .vscode/
 .idea/
+k8s/postgres-secret.yaml
+# Secrets Kubernetes (contiennent des mots de passe en clair)
+k8s/postgres-secret.yaml
+
+# Clé privée SSL
+apache-docker/ssl/mediatheque.key
+
+# War et jar buildés (artefacts, pas du code source)
+wildfly-docker/mediatheque-api.war
+wildfly-docker/postgresql-module/*.jar

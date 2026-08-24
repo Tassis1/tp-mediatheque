@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wildfly-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wildfly
+  template:
+    metadata:
+      labels:
+        app: wildfly
+    spec:
+      containers:
+        - name: wildfly
+          image: mediatheque-wildfly:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: postgres-secret
+          volumeMounts:
+            - name: wildfly-logs 
+              mountPath: /opt/jboss/wildfly/standalone/log
+      volumes:
+        - name: wildfly-logs  
+          persistentVolumeClaim:
+            claimName: wildfly-logs-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wildfly-service
+spec:
+  selector:
+    app: wildfly
+  ports:
+    - port: 8080
+      targetPort: 8080
