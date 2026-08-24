@@ -90,11 +90,11 @@ jobs:
         with:
           context: ./wildfly-docker
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/mediatheque-wildfly:latest
+          tags: ghcr.io/tassis1/mediatheque-wildfly:latest
 
       - name: Build + push image Apache
         uses: docker/build-push-action@v5
         with:
           context: ./apache-docker
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/mediatheque-apache:latest
+          tags: ghcr.io/tassis1/mediatheque-apache:latest
