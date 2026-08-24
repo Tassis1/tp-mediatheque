@@ -77,7 +77,9 @@ jobs:
         with:
           name: mediatheque-front-dist
           path: apache-docker/mediatheque/
-
+      - name: Créer standalone.xml
+        run: |
+          echo '${{ secrets.WILDFLY_STANDALONE_XML }}' > wildfly-docker/standalone.xml
       - name: Connexion à GitHub Container Registry
         uses: docker/login-action@v3
         with:
