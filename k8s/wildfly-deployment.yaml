@@ -21,6 +21,8 @@ spec:
           envFrom:
             - secretRef:
                 name: postgres-secret
+            - secretRef:
+                name: wildfly-secret
           volumeMounts:
             - name: wildfly-logs 
               mountPath: /opt/jboss/wildfly/standalone/log
