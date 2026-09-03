@@ -1,3 +1,60 @@
+name: CI/CD Médiathèque
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build Maven (compile + package)
+        working-directory: ./mediatheque-api
+        run: mvn clean package
+
+      - name: Sauvegarder le .war pour les jobs suivants
+        uses: actions/upload-artifact@v4
+        with:
+          name: mediatheque-api-war
+          path: mediatheque-api/target/mediatheque-api.war
+
+
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installer les dépendances
+        working-directory: ./mediatheque-front
+        run: npm ci
+
+      - name: Build de production
+        working-directory: ./mediatheque-front
+        run: npm run build
+
+      - name: Sauvegarder le build pour les jobs suivants
+        uses: actions/upload-artifact@v4
+        with:
+          name: mediatheque-front-dist
+          path: mediatheque-front/dist
+
+
   build-and-push-images:
     needs: [build-backend, build-frontend]
     runs-on: ubuntu-latest
