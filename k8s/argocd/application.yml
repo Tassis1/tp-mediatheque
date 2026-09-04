@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: mediatheque
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Tassis1/tp-mediatheque.git
+    targetRevision: main
+    path: k8s/app
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mediatheque
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true 

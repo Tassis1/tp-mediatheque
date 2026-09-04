@@ -1,0 +1,16 @@
+---
+- name: Télécharger kubectl
+  ansible.builtin.get_url:
+    url: "https://dl.k8s.io/release/{{ kubectl_version }}/bin/linux/amd64/kubectl"
+    dest: /usr/local/bin/kubectl
+    mode: "0755"
+
+- name: Vérifier kubectl
+  ansible.builtin.command:
+    cmd: kubectl version --client
+  register: kubectl_version_output
+  changed_when: false
+
+- name: Afficher la version de kubectl
+  ansible.builtin.debug:
+    var: kubectl_version_output.stdout

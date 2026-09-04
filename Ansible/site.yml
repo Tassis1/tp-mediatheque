@@ -1,0 +1,10 @@
+---
+- name: Préparation du serveur Minikube
+  hosts: minikube
+  become: true
+
+  roles:
+    - docker
+    - kubectl
+    - minikube
+    - argocd

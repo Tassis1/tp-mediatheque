@@ -1,0 +1,23 @@
+---
+- name: Télécharger Minikube
+  ansible.builtin.get_url:
+    url: "https://storage.googleapis.com/minikube/releases/{{ minikube_version }}/minikube-linux-amd64"
+    dest: /usr/local/bin/minikube
+    mode: "0755"
+
+- name: Vérifier Minikube
+  ansible.builtin.command:
+    cmd: minikube version
+  register: minikube_version_output
+  changed_when: false
+
+- name: Afficher la version de Minikube
+  ansible.builtin.debug:
+    var: minikube_version_output.stdout
+
+- name: Démarrer Minikube
+  become: false
+  ansible.builtin.command:
+    cmd: "minikube start --driver={{ minikube_driver }}"
+  register: minikube_start
+  changed_when: "'Done! kubectl is now configured' in minikube_start.stdout"

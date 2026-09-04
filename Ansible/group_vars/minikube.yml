@@ -1,0 +1,10 @@
+---
+docker_package: docker.io
+
+kubectl_version: "v1.34.0"
+
+minikube_version: "v1.37.0"
+
+minikube_driver: docker
+
+argocd_namespace: argocd
