@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: mediatheque-front:latest
-          imagePullPolicy: Never
+          image: ghcr.io/tassis1/mediatheque-front:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
 

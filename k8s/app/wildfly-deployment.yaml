@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: wildfly
-          image: mediatheque-wildfly:latest
-          imagePullPolicy: Never
+          image: ghcr.io/tassis1/mediatheque-wildfly:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           envFrom:

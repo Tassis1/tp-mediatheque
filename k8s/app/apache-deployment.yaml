@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: apache
-          image: mediatheque-apache:latest
-          imagePullPolicy: Never
+          image: ghcr.io/tassis1/mediatheque-apache:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
             - containerPort: 443

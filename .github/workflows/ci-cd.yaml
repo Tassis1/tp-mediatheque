@@ -102,3 +102,10 @@ jobs:
           context: ./apache-docker
           push: true
           tags: ghcr.io/tassis1/mediatheque-apache:latest
+        
+      - name: Build + push image Frontend
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend-docker
+          push: true
+          tags: ghcr.io/tassis1/mediatheque-front:latest  
