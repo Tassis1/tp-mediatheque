@@ -76,7 +76,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: mediatheque-front-dist
-          path: apache-docker/mediatheque/
+          path: mediatheque-front/dist
 
       - name: Créer standalone.xml
         run: |
@@ -108,4 +108,4 @@ jobs:
         with:
           context: ./mediatheque-front
           push: true
-          tags: ghcr.io/tassis1/mediatheque-front:latest  
+          tags: ghcr.io/tassis1/mediatheque-front:latest
