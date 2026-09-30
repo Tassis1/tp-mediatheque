@@ -7,4 +7,4 @@
     - docker
     - kubectl
     - minikube
-    - argocd
+    - argocd 
